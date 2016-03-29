@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>three.js webgl - shaders - sky sun shader</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+
+			body {
+				color: #ffffff;
+				font-family:Monospace;
+				font-size:13px;
+				text-align:center;
+				font-weight: bold;
+
+				background-color: #fff;
+				margin: 0px;
+				overflow: hidden;
+				text
+			}
+
+			#info {
+				color:#ccc;
+				text-shadow: 1px 1px rgba(255,255,255,0.25);
+				position: absolute;
+				top: 0px; width: 100%;
+				padding: 5px;
+
+			}
+
+			a {
+				color: #fff;
+			}
+
+		</style>
+	</head>
+	<body>
+
+		<div id="info">立方体
+		</div>
+
+		<script src="build/three.min.js"></script>
+
+		<script src="js/controls/OrbitControls.js"></script>
+		<script src="js/SkyShader.js"></script>
+        <script src="js/mine.js"></script>
+
+		<script src="js/Detector.js"></script>
+		<script src="js/libs/dat.gui.min.js"></script>
+        
+   		<script src="../build/three.min.js"></script>
+		<script src="../examples/js/libs/system.min.js"></script>
+        <script src="build/three.min.js"></script>
+
+		<script src="../build/three.min.js"></script>
+		<script src="js/loaders/DDSLoader.js"></script>
+		<script src="js/renderers/Projector.js"></script>
+		<script src="js/renderers/CanvasRenderer.js"></script>
+
+		<script src="js/Detector.js"></script>
+		<script src="js/libs/stats.min.js"></script>
+		<script src="js/controls/OrbitControls.js"></script>
+		<script src="js/SkyShader.js"></script>
+        <script src="js/mine.js"></script>
+
+		<script src="js/Detector.js"></script>
+		<script src="js/libs/dat.gui.min.js"></script>
+
+		<script src="../examples/js/controls/EditorControls.js"></script>
+		<script src="../examples/js/controls/TransformControls.js"></script>
+
+		<script src="../examples/js/libs/jszip.min.js"></script>
+		<script src="../examples/js/loaders/AMFLoader.js"></script>
+		<script src="../examples/js/loaders/AWDLoader.js"></script>
+		<script src="../examples/js/loaders/BabylonLoader.js"></script>
+		<script src="../examples/js/loaders/ColladaLoader.js"></script>
+		<script src="../examples/js/loaders/KMZLoader.js"></script>
+		<script src="../examples/js/loaders/MD2Loader.js"></script>
+		<script src="../examples/js/loaders/OBJLoader.js"></script>
+		<script src="../examples/js/loaders/PLYLoader.js"></script>
+		<script src="../examples/js/loaders/STLLoader.js"></script>
+		<script src="../examples/js/loaders/UTF8Loader.js"></script>
+		<script src="../examples/js/loaders/VRMLLoader.js"></script>
+		<script src="../examples/js/loaders/VTKLoader.js"></script>
+		<script src="../examples/js/loaders/ctm/lzma.js"></script>
+		<script src="../examples/js/loaders/ctm/ctm.js"></script>
+		<script src="../examples/js/loaders/ctm/CTMLoader.js"></script>
+		<script src="../examples/js/exporters/OBJExporter.js"></script>
+		<script src="../examples/js/exporters/STLExporter.js"></script>
+
+		<script src="../examples/js/loaders/deprecated/SceneLoader.js"></script>
+
+		<script src="../examples/js/renderers/Projector.js"></script>
+		<script src="../examples/js/renderers/CanvasRenderer.js"></script>
+		<script src="../examples/js/renderers/RaytracingRenderer.js"></script>
+		<script src="../examples/js/renderers/SoftwareRenderer.js"></script>
+		<script src="../examples/js/renderers/SVGRenderer.js"></script>
+
+		<link rel="stylesheet" href="js/libs/codemirror/codemirror.css">
+		<link rel="stylesheet" href="js/libs/codemirror/theme/monokai.css">
+		<script src="js/libs/codemirror/codemirror.js"></script>
+
+		<script src="js/libs/codemirror/mode/javascript.js"></script>
+		<script src="js/libs/esprima.js"></script>
+		<script src="js/libs/jsonlint.js"></script>
+		<script src="js/libs/glslprep.min.js"></script>
+
+		<script src="js/libs/codemirror/mode/glsl.js"></script>
+
+		<link rel="stylesheet" href="js/libs/codemirror/addon/dialog.css">
+		<link rel="stylesheet" href="js/libs/codemirror/addon/show-hint.css">
+		<link rel="stylesheet" href="js/libs/codemirror/addon/tern.css">
+		<script src="js/libs/codemirror/addon/dialog.js"></script>
+		<script src="js/libs/codemirror/addon/show-hint.js"></script>
+		<script src="js/libs/codemirror/addon/tern.js"></script>
+		<script src="js/libs/acorn/acorn.js"></script>
+		<script src="js/libs/acorn/acorn_loose.js"></script>
+		<script src="js/libs/acorn/walk.js"></script>
+		<script src="js/libs/ternjs/polyfill.js"></script>
+		<script src="js/libs/ternjs/signal.js"></script>
+		<script src="js/libs/ternjs/tern.js"></script>
+		<script src="js/libs/ternjs/def.js"></script>
+		<script src="js/libs/ternjs/comment.js"></script>
+		<script src="js/libs/ternjs/infer.js"></script>
+		<script src="js/libs/ternjs/doc_comment.js"></script>
+		<script src="js/libs/tern-threejs/threejs.js"></script>
+
+		<script src="js/libs/sortable.min.js"></script>
+		<script src="js/libs/signals.min.js"></script>
+		<script src="js/libs/ui.js"></script>
+		<script src="js/libs/ui.three.js"></script>
+
+		<script src="js/libs/app.js"></script>
+		<script src="js/Player.js"></script>
+		<script src="js/Script.js"></script>
+
+		<script src="../examples/js/effects/VREffect.js"></script>
+		<script src="../examples/js/controls/VRControls.js"></script>
+
+		<script src="js/Storage.js"></script>
+
+		<script src="js/Editor.js"></script>
+		<script src="js/Config.js"></script>
+		<script src="js/History.js"></script>
+		<script src="js/Loader.js"></script>
+		<script src="js/Menubar.js"></script>
+		<script src="js/Menubar.File.js"></script>
+		<script src="js/Menubar.Edit.js"></script>
+		<script src="js/Menubar.Add.js"></script>
+		<script src="js/Menubar.Play.js"></script>
+		<script src="js/Menubar.View.js"></script>
+		<script src="js/Menubar.Examples.js"></script>
+		<script src="js/Menubar.Help.js"></script>
+		<script src="js/Menubar.Status.js"></script>
+		<script src="js/Sidebar.js"></script>
+		<script src="js/Sidebar.Project.js"></script>
+		<script src="js/Sidebar.Scene.js"></script>
+		<script src="js/Sidebar.Object3D.js"></script>
+		<script src="js/Sidebar.Animation.js"></script>
+		<script src="js/Sidebar.Geometry.js"></script>
+		<script src="js/Sidebar.Geometry.Geometry.js"></script>
+		<script src="js/Sidebar.Geometry.BufferGeometry.js"></script>
+		<script src="js/Sidebar.Geometry.Modifiers.js"></script>
+		<script src="js/Sidebar.Geometry.BoxGeometry.js"></script>
+		<script src="js/Sidebar.Geometry.CircleGeometry.js"></script>
+		<script src="js/Sidebar.Geometry.CylinderGeometry.js"></script>
+		<script src="js/Sidebar.Geometry.IcosahedronGeometry.js"></script>
+		<script src="js/Sidebar.Geometry.PlaneGeometry.js"></script>
+		<script src="js/Sidebar.Geometry.SphereGeometry.js"></script>
+		<script src="js/Sidebar.Geometry.TorusGeometry.js"></script>
+		<script src="js/Sidebar.Geometry.TorusKnotGeometry.js"></script>
+		<script src="../examples/js/geometries/TeapotBufferGeometry.js"></script>
+		<script src="js/Sidebar.Geometry.TeapotBufferGeometry.js"></script>
+		<script src="js/Sidebar.Material.js"></script>
+		<script src="js/Sidebar.Script.js"></script>
+		<script src="js/Toolbar.js"></script>
+		<script src="js/Viewport.js"></script>
+		<script src="js/Viewport.Info.js"></script>
+
+
+		<script>
+
+
+			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
+			var container;
+
+			var camera, controls, scene, renderer;
+
+			init();
+			render();
+
+			function initCube() {
+				
+				light = new THREE.PointLight( 0xffffff ); 
+				light.position.set( 1000, 1000, 1000 ); 
+				scene.add( light ); 
+
+				//矿柱
+				var myCube = new THREE.BoxGeometry( 20, 100, 100 );
+				var material = new THREE.MeshLambertMaterial( { color: 0xffffff } );
+				mesh = new THREE.Mesh( myCube, material );
+				scene.add( mesh );
+				
+			/*	var loader = new THREE.JSONLoader();
+				var geometry;
+				geometry = new THREE.PlaneBufferGeometry( 100, 100, 15, 10 );
+				var materialff;
+				materialff = new THREE.MeshLambertMaterial( { color: 0x0a0a0a } );
+				var callbackMale = function ( geometry, materialff ) { createScene( geometry, materialff, 90, -150, 50, 105 ) };
+
+				loader.load( "js/mine.js", callbackMale );*/
+				
+				
+				
+				//矿房
+				var myCube1 = new THREE.BoxGeometry( 20, 100, 100 );
+				var material1 = new THREE.MeshLambertMaterial( { color: 0xf0f0f0 } );
+				mesh1 = new THREE.Mesh( myCube1, material1 );
+				mesh1.position.x = 100;
+				scene.add( mesh1 );
+				
+				//upper
+				/*var myCube2 = new THREE.BoxGeometry( 60, 30, 100 );
+				var material2 = new THREE.MeshLambertMaterial( { color: 0x616130 } );
+				mesh2 = new THREE.Mesh( myCube2, material2 );
+				mesh2.position.x = 40;
+				mesh2.position.y = 35;
+				scene.add( mesh2 );*/
+				
+				//down
+				var myCube3 = new THREE.BoxGeometry( 60, 70, 100 );
+				var material3 = new THREE.MeshLambertMaterial( { color: 0xAFAF61 } );
+				mesh3 = new THREE.Mesh( myCube3, material3 );
+				mesh3.position.x = 40;
+				mesh3.position.y = -15;
+				scene.add( mesh3 );
+				
+				//墙
+				var myCube4 = new THREE.BoxGeometry( 150, 150, 20 );
+				var material4 = new THREE.MeshLambertMaterial( { color: 0x949449//});
+				,transparent: true, opacity: 0.8  } );
+				mesh4 = new THREE.Mesh( myCube4, material4 );
+				mesh4.position.z = -60;
+				mesh4.position.x = 40;
+				scene.add( mesh4 );
+				
+				//巷道1
+				var myCube6 = new THREE.BoxGeometry( 80, 20, 30 );
+				var material6 = new THREE.MeshLambertMaterial( { color: 0xF0F0F0});
+				//,transparent: true, opacity: 0.8  } );
+				mesh6 = new THREE.Mesh( myCube6, material6 );
+				mesh6.position.z = -60;
+				mesh6.position.x = 40;
+				mesh6.position.y = -10;
+				scene.add( mesh6 );
+				
+				//巷道2
+				var myCube7 = new THREE.BoxGeometry( 10, 10, 35 );
+				var material7 = new THREE.MeshLambertMaterial( { color: 0x0F0F0F});
+				//,transparent: true, opacity: 0.8  } );
+				mesh7 = new THREE.Mesh( myCube7, material7 );
+				mesh7.position.z = -60;
+				mesh7.position.x = 40;
+				mesh7.position.y = -10;
+				scene.add( mesh7 );
+
+				/// GUI
+
+				var effectController  = {
+					kzx: 20,
+					kzy: 100,
+					kzz: 100,
+					kfx: 20,
+					kfy: 70,
+					kfz: 100,
+				};
+
+				var distance = 200000;
+
+				function guiChanged() {
+					
+					//
+					scene.remove( myCube );
+					scene.remove( mesh );
+
+					var myCube = new THREE.BoxGeometry( 
+									effectController.kzx,
+								    effectController.kzy,
+									effectController.kzz 
+									);
+					for ( var i = 0; i < myCube.faces.length; i += 2 ) {
+					//	var hex = Math.random() * 0xffffff;
+					    var hex = 0xE0E0E0; 
+						myCube.faces[ i ].color.setHex( hex );
+						myCube.faces[ i + 1 ].color.setHex( hex );
+					}
+				//	var material = new THREE.MeshBasicMaterial( { vertexColors: THREE.FaceColors, overdraw: 0.5 } );
+
+					var material = new THREE.MeshBasicMaterial({color: 0xADADAD,transparent: true, opacity: 0.8});
+					mesh = new THREE.Mesh( myCube, material );
+					mesh.position.x = 10 - effectController.kzx/2;
+					mesh.position.y = effectController.kzy/2 - 50;
+					mesh.position.z = effectController.kzz/2 - 50;
+					scene.add( mesh );
+					
+					////
+					
+					/*var loader = new THREE.JSONLoader();
+loader.load('./mine.js', function(geo, mat){
+
+    var materials = new THREE.MeshFaceMaterial( mat );
+
+    var mesh = new THREE.Mesh(geo, materials);
+
+    mesh.position.y=0;
+    mesh.position.x=5;
+    loadJson(mesh );
+});
+
+ function loadJson(mesh){
+     scene.add( mesh );    
+ }*/
+					
+					////
+					
+					
+					//
+					scene.remove( myCube1 );
+					scene.remove( mesh1 );
+					var myCube1 = new THREE.BoxGeometry( 
+									effectController.kzx,
+								    effectController.kzy,
+									effectController.kzz 
+									);
+					for ( var i = 0; i < myCube1.faces.length; i += 2 ) {
+					//	var hex = Math.random() * 0xffffff;
+					    var hex = 0xE0E0E0; 
+						myCube1.faces[ i ].color.setHex( hex );
+						myCube1.faces[ i + 1 ].color.setHex( hex );
+					}
+
+					var material = new THREE.MeshBasicMaterial({color: 0xADADAD,transparent: true, opacity: 0.8});
+					mesh1 = new THREE.Mesh( myCube1, material );
+					mesh1.position.x = 70+effectController.kzx/2;
+					mesh1.position.y = effectController.kzy/2 - 50;
+					mesh1.position.z = effectController.kzz/2 - 50;
+					scene.add( mesh1 );
+					////upper
+					/*scene.remove( myCube2 );
+					scene.remove( mesh2 );
+					var myCube2 = new THREE.BoxGeometry( 60, 
+					effectController.kzy-effectController.kfy
+					, effectController.kzz  );
+					var material2 = new THREE.MeshLambertMaterial( { color: 0x616130,transparent: true, opacity: 0.8 } );
+					mesh2 = new THREE.Mesh( myCube2, material2 );
+					mesh2.position.x = 40;
+					mesh2.position.y = 35;
+					mesh2.position.z = effectController.kzz/2 - 50;
+					scene.add( mesh2 );*/
+					//down
+					scene.remove( myCube3 );
+					scene.remove( mesh3 );
+					var myCube3 = new THREE.BoxGeometry(
+						 60, 
+						 effectController.kfy,
+						 effectController.kzz  );
+					var material3 = new THREE.MeshLambertMaterial( { color: 0x808040,transparent: true, opacity: 0.8 } );
+					mesh3 = new THREE.Mesh( myCube3, material3 );
+				//	mesh3.position.x = 40+effectController.kzx/4-effectController.kfx/4;
+					mesh3.position.x = 40;
+					mesh3.position.y = effectController.kfy/2-50;
+					mesh3.position.z = effectController.kzz/2 - 50;
+					scene.add( mesh3 );
+					
+					//
+					//墙
+					scene.remove( myCube4 );
+					scene.remove( mesh4 );
+					var myCube4 = new THREE.BoxGeometry( 
+					70+effectController.kzx*2+effectController.kfx*2,
+					 70+effectController.kzy*2
+					 , 20 );
+					var material4 = new THREE.MeshLambertMaterial( { color: 0xF4D950 } );
+					mesh4 = new THREE.Mesh( myCube4, material4 );
+					mesh4.position.z = -60;
+					mesh4.position.x = 40;
+				//	mesh4.position.y = -60;
+					scene.add( mesh4 );
+					
+					//巷道1
+					scene.remove( myCube6 );
+					scene.remove( mesh6 );
+				var myCube6 = new THREE.BoxGeometry( 60+effectController.kzx, 20, 30 );
+				var material6 = new THREE.MeshLambertMaterial( { color: 0xF0F0F0});
+				//,transparent: true, opacity: 0.8  } );
+				mesh6 = new THREE.Mesh( myCube6, material6 );
+				mesh6.position.z = -60;
+				mesh6.position.x = 40;
+				mesh6.position.y = effectController.kzy*2/5 - 50;
+				scene.add( mesh6 );
+				
+				//
+				scene.remove( myCube7 );
+					scene.remove( mesh7 );
+				var myCube7 = new THREE.BoxGeometry( 10, 10, 35 );
+				var material7 = new THREE.MeshLambertMaterial( { color: 0x0F0F0F});
+				//,transparent: true, opacity: 0.8  } );
+				mesh7 = new THREE.Mesh( myCube7, material7 );
+				mesh7.position.z = -60;
+				mesh7.position.x = 40;
+				mesh7.position.y = effectController.kzy*2/5 - 50;
+				scene.add( mesh7 );
+
+					renderer.render( scene, camera );
+
+				}
+
+				var gui = new dat.GUI();
+				
+				gui.add( effectController, "kzx", 0, 200, 1 ).onChange( guiChanged );
+				gui.add( effectController, "kzy", 0, 200, 1 ).onChange( guiChanged );
+				gui.add( effectController, "kzz", 0, 200, 1 ).onChange( guiChanged );
+				gui.add( effectController, "kfx", 0, 200, 1 ).onChange( guiChanged );
+				gui.add( effectController, "kfy", 0, 200, 1 ).onChange( guiChanged );
+			//	gui.add( effectController, "kfz", 0, 200, 1 ).onChange( guiChanged );
+				guiChanged();
+
+			}
+
+			function init() {
+
+                //set camera
+				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 100, 2000000 );
+				camera.position.set( 200, 100, 200 );
+
+				scene = new THREE.Scene();
+				
+				light = new THREE.HemisphereLight( 0xffbbbb, 0x444488 );
+				light.position.set( - 1000, 1000, 1000 );
+				scene.add( light );
+				
+				
+				
+				
+			/*	var loader1= new THREE.BinaryLoader();
+				var callbackLoad = function ( geometry , materials ) {
+				loadModel( geometry , materials );
+					}
+				loader1.load( "js/mine.js" , callbackLoad );*/
+
+				renderer = new THREE.WebGLRenderer();
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setClearColor( 0x5CADAD );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				document.body.appendChild( renderer.domElement );
+
+				controls = new THREE.OrbitControls( camera, renderer.domElement );
+				controls.addEventListener( 'change', render );
+				controls.enableZoom = true;
+				controls.enablePan = true;
+
+				initCube();
+
+				window.addEventListener( 'resize', onWindowResize, false );
+
+			}
+
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+				render();
+
+			}
+
+			function render() {
+
+				renderer.render( scene, camera );
+
+			}
+
+		</script>
+
+	</body>
+
+</html>
