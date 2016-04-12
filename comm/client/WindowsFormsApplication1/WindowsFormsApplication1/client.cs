@@ -14,22 +14,29 @@ using System.Threading;
 namespace WindowsFormsApplication1
 {
      
-    public partial class Form1 : Form
+    public partial class client : Form
     { 
         private static byte[] result = new byte[1024];
-        public Form1()
+        public client()
         {
             InitializeComponent();
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             IPAddress ip = IPAddress.Parse("127.0.0.1");
             Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             try
             {
                 clientSocket.Connect(new IPEndPoint(ip, 8885)); //配置服务器IP与端口  
-                Console.WriteLine("连接服务器成功");
+                //Console.WriteLine("连接服务器成功");
+                textBox1.Text += "连接服务器成功\n";
             }
             catch
             {
-                Console.WriteLine("连接服务器失败，请按回车键退出！");
+                //Console.WriteLine("连接服务器失败，请按回车键退出！");
+                textBox1.Text += "连接服务器失败\n";
                 return;
             }
             //通过clientSocket接收数据  
@@ -41,7 +48,8 @@ namespace WindowsFormsApplication1
                 try
                 {
                     Thread.Sleep(1000);    //等待1秒钟  
-                    string sendMessage = "client send Message Hellp" + DateTime.Now;
+                    //string sendMessage = "client send Message Hellp" + DateTime.Now;
+                    string sendMessage = textBox2.Text.ToString();
                     clientSocket.Send(Encoding.ASCII.GetBytes(sendMessage));
                     Console.WriteLine("向服务器发送消息：{0}" + sendMessage);
                 }
@@ -54,11 +62,6 @@ namespace WindowsFormsApplication1
             }
             Console.WriteLine("发送完毕，按回车键退出");
             Console.ReadLine();  
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

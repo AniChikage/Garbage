@@ -13,23 +13,15 @@ using System.Threading;
 
 namespace server
 {
-    public partial class Form1 : Form
+    public partial class server : Form
     {
         private static byte[] result = new byte[1024];
         private static int myPort = 8885;
         static Socket serverSocket;
-        public Form1()
+        public server()
         {
             InitializeComponent();
-            IPAddress ip = IPAddress.Parse("127.0.0.1");
-            serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            serverSocket.Bind(new IPEndPoint(ip, myPort));  //绑定IP地址：端口  
-            serverSocket.Listen(10);    //设定最多10个排队连接请求  
-            textBox1.Text += "启动监听"+serverSocket.LocalEndPoint.ToString()+"成功" +"\n";
-            //Console.WriteLine("启动监听{0}成功", serverSocket.LocalEndPoint.ToString());
-            //通过Clientsoket发送数据  
-            Thread myThread = new Thread(ListenClientConnect);
-            myThread.Start();  
+            
         }
 
         /// <summary>  
@@ -61,6 +53,7 @@ namespace server
                     int receiveNumber = myClientSocket.Receive(result);
                     //Console.WriteLine("接收客户端{0}消息{1}", myClientSocket.RemoteEndPoint.ToString(), Encoding.ASCII.GetString(result, 0, receiveNumber));
                     //textBox1.
+                    
                 }
                 catch (Exception ex)
                 {
@@ -74,7 +67,15 @@ namespace server
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            IPAddress ip = IPAddress.Parse("127.0.0.1");
+            serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            serverSocket.Bind(new IPEndPoint(ip, myPort));  //绑定IP地址：端口  
+            serverSocket.Listen(10);    //设定最多10个排队连接请求  
+            textBox1.Text += "启动监听" + serverSocket.LocalEndPoint.ToString() + "成功" + "\n";
+            //Console.WriteLine("启动监听{0}成功", serverSocket.LocalEndPoint.ToString());
+            //通过Clientsoket发送数据  
+            Thread myThread = new Thread(ListenClientConnect);
+            myThread.Start();  
         }
     }
 }
