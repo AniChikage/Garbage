@@ -1,4 +1,4 @@
-﻿namespace server
+﻿namespace WindowsFormsApplication1
 {
     partial class Form1
     {
@@ -34,15 +34,15 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(34, 28);
+            this.textBox1.Location = new System.Drawing.Point(48, 75);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(160, 226);
+            this.textBox1.Size = new System.Drawing.Size(113, 118);
             this.textBox1.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(289, 50);
+            this.button1.Location = new System.Drawing.Point(200, 75);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -54,7 +54,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(749, 343);
+            this.ClientSize = new System.Drawing.Size(634, 359);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Name = "Form1";
