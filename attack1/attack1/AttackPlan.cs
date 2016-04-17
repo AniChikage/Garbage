@@ -38,13 +38,15 @@ namespace attack1
         private int i;
 
         //
-        private static byte[] byteresult = new byte[1024];
-        private static int myPort = 8885;
-        static Socket serverSocket;
-        
+        Thread threadWatch = null; //负责监听客户端的线程
+        Socket socketWatch = null; //负责监听客户端的套接字
+
+
         public AttackPlan()
         {
             InitializeComponent();
+            //关闭对文本框的非法线程操作检查
+            TextBox.CheckForIllegalCrossThreadCalls = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -161,66 +163,80 @@ namespace attack1
         }
 
 
-        /// <summary>  
-        /// 监听客户端连接  
-        /// </summary>  
-        private static void ListenClientConnect()
-        {
-            while (true)
-            {
-                Socket clientSocket = serverSocket.Accept();
-                clientSocket.Send(Encoding.ASCII.GetBytes("Server Say Hello"));
-                Thread receiveThread = new Thread(ReceiveMessage);
-                receiveThread.Start(clientSocket);
-            }
-        }
-
-        /// <summary>  
-        /// 接收消息  
-        /// </summary>  
-        /// <param name="clientSocket"></param>  
-        private static void ReceiveMessage(object clientSocket)
-        {
-            Socket myClientSocket = (Socket)clientSocket;
-            while (true)
-            {
-                try
-                {
-                    //通过clientSocket接收数据  
-                    int receiveNumber = myClientSocket.Receive(byteresult);
-                    //Console.WriteLine("接收客户端{0}消息{1}", myClientSocket.RemoteEndPoint.ToString(), Encoding.ASCII.GetString(result, 0, receiveNumber));
-                    //textBox1.
-
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    myClientSocket.Shutdown(SocketShutdown.Both);
-                    myClientSocket.Close();
-                    break;
-                }
-            }
-        }
+        
         private void server_listen_Click(object sender, EventArgs e)
         {
-            IPAddress ip = IPAddress.Parse("127.0.0.1");
-            serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            try { 
-                serverSocket.Bind(new IPEndPoint(ip, myPort));  //绑定IP地址：端口
-                serverSocket.Listen(10);    //设定最多10个排队连接请求  
-                //textBox1.Text += "启动监听" + serverSocket.LocalEndPoint.ToString() + "成功" + "\n";
-                MessageBox.Show("启动监听" + serverSocket.LocalEndPoint.ToString() + "成功");
-                //Console.WriteLine("启动监听{0}成功", serverSocket.LocalEndPoint.ToString());
-                //通过Clientsoket发送数据  
-                Thread myThread = new Thread(ListenClientConnect);
-                myThread.Start();  
-            }
-            catch(Exception ex)
-            {
-                //MessageBox.Show(ex.ToString());
-                MessageBox.Show("您已经启动服务！");
-            };
+            socketWatch = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            IPAddress ipaddress = IPAddress.Parse(txtIP.Text.Trim()); 
+            IPEndPoint endpoint = new IPEndPoint(ipaddress, int.Parse(txtPORT.Text.Trim())); 
+            socketWatch.Bind(endpoint);
+            socketWatch.Listen(20);
+            threadWatch = new Thread(WatchConnecting);
+            threadWatch.IsBackground = true;
+            threadWatch.Start();
+            txtMsg.AppendText("开始监听客户端传来的信息!" + "\r\n");
             
+        }
+
+        Socket socConnection = null;
+
+        /// <summary>
+        /// 监听客户端发来的请求
+        /// </summary>
+        private void WatchConnecting()
+        {
+            while (true)  
+            {
+                socConnection = socketWatch.Accept();
+                txtMsg.AppendText("客户端连接成功" + "\r\n");
+                ParameterizedThreadStart pts = new ParameterizedThreadStart(ServerRecMsg);
+                Thread thr = new Thread(pts);
+                thr.IsBackground = true;
+                thr.Start(socConnection);
+            }
+        }
+
+        /// <summary>
+        /// 发送信息到客户端的方法
+        /// </summary>
+        /// <param name="sendMsg">发送的字符串信息</param>
+        private void ServerSendMsg(string sendMsg)
+        {
+            byte[] arrSendMsg = Encoding.UTF8.GetBytes(sendMsg);
+            socConnection.Send(arrSendMsg);
+            txtMsg.AppendText(GetCurrentTime() + "：" + sendMsg + "\r\n");
+        }
+
+        /// <summary>
+        /// 接收客户端发来的信息 
+        /// </summary>
+        /// <param name="socketClientPara">客户端套接字对象</param>
+        private void ServerRecMsg(object socketClientPara)
+        {
+            Socket socketServer = socketClientPara as Socket;
+            while (true)
+            {
+                byte[] arrServerRecMsg = new byte[1024 * 1024];
+                int length = socketServer.Receive(arrServerRecMsg);
+                string strSRecMsg = Encoding.UTF8.GetString(arrServerRecMsg, 0, length);
+                txtMsg.AppendText("client:" + GetCurrentTime() + "：" + strSRecMsg + "\r\n");
+            }
+        }
+
+        /// <summary>
+        /// 获取当前系统时间的方法
+        /// </summary>
+        /// <returns>当前时间</returns>
+        private DateTime GetCurrentTime()
+        {
+            DateTime currentTime = new DateTime();
+            currentTime = DateTime.Now;
+            return currentTime;
+        }
+
+        private void btnSendMsg_Click(object sender, EventArgs e)
+        {
+            ServerSendMsg(txtSendMsg.Text.Trim());
         }
          
         }

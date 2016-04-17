@@ -53,6 +53,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.server_listen = new System.Windows.Forms.Button();
+            this.txtMsg = new System.Windows.Forms.TextBox();
+            this.txtIP = new System.Windows.Forms.TextBox();
+            this.txtPORT = new System.Windows.Forms.TextBox();
+            this.txtSendMsg = new System.Windows.Forms.TextBox();
+            this.btnSendMsg = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -293,13 +298,52 @@
             // 
             // server_listen
             // 
-            this.server_listen.Location = new System.Drawing.Point(397, 68);
+            this.server_listen.Location = new System.Drawing.Point(486, 15);
             this.server_listen.Name = "server_listen";
-            this.server_listen.Size = new System.Drawing.Size(75, 49);
+            this.server_listen.Size = new System.Drawing.Size(75, 30);
             this.server_listen.TabIndex = 33;
             this.server_listen.Text = "启动服务";
             this.server_listen.UseVisualStyleBackColor = true;
             this.server_listen.Click += new System.EventHandler(this.server_listen_Click);
+            // 
+            // txtMsg
+            // 
+            this.txtMsg.Location = new System.Drawing.Point(258, 69);
+            this.txtMsg.Multiline = true;
+            this.txtMsg.Name = "txtMsg";
+            this.txtMsg.Size = new System.Drawing.Size(187, 80);
+            this.txtMsg.TabIndex = 34;
+            // 
+            // txtIP
+            // 
+            this.txtIP.Location = new System.Drawing.Point(258, 22);
+            this.txtIP.Name = "txtIP";
+            this.txtIP.Size = new System.Drawing.Size(100, 21);
+            this.txtIP.TabIndex = 35;
+            // 
+            // txtPORT
+            // 
+            this.txtPORT.Location = new System.Drawing.Point(385, 21);
+            this.txtPORT.Name = "txtPORT";
+            this.txtPORT.Size = new System.Drawing.Size(60, 21);
+            this.txtPORT.TabIndex = 36;
+            // 
+            // txtSendMsg
+            // 
+            this.txtSendMsg.Location = new System.Drawing.Point(258, 48);
+            this.txtSendMsg.Name = "txtSendMsg";
+            this.txtSendMsg.Size = new System.Drawing.Size(187, 21);
+            this.txtSendMsg.TabIndex = 37;
+            // 
+            // btnSendMsg
+            // 
+            this.btnSendMsg.Location = new System.Drawing.Point(486, 67);
+            this.btnSendMsg.Name = "btnSendMsg";
+            this.btnSendMsg.Size = new System.Drawing.Size(75, 23);
+            this.btnSendMsg.TabIndex = 38;
+            this.btnSendMsg.Text = "send";
+            this.btnSendMsg.UseVisualStyleBackColor = true;
+            this.btnSendMsg.Click += new System.EventHandler(this.btnSendMsg_Click);
             // 
             // AttackPlan
             // 
@@ -308,6 +352,11 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(901, 605);
+            this.Controls.Add(this.btnSendMsg);
+            this.Controls.Add(this.txtSendMsg);
+            this.Controls.Add(this.txtPORT);
+            this.Controls.Add(this.txtIP);
+            this.Controls.Add(this.txtMsg);
             this.Controls.Add(this.server_listen);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.pictureBox1);
@@ -364,5 +413,10 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button server_listen;
+        private System.Windows.Forms.TextBox txtMsg;
+        private System.Windows.Forms.TextBox txtIP;
+        private System.Windows.Forms.TextBox txtPORT;
+        private System.Windows.Forms.TextBox txtSendMsg;
+        private System.Windows.Forms.Button btnSendMsg;
     }
 }

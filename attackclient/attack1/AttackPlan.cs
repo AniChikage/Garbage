@@ -37,15 +37,14 @@ namespace attack1
         private int flag = 0;
         private int i;
 
-        private static byte[] byteresult = new byte[1024];
-        IPAddress ip = IPAddress.Parse("127.0.0.1");
-        Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         
         public AttackPlan()
         {
             InitializeComponent();
+            TextBox.CheckForIllegalCrossThreadCalls = false;
         }
-
+        Socket socketClient = null;
+        Thread threadClient = null;
         private void button1_Click(object sender, EventArgs e)
         {
             int_missilenum = Convert.ToInt32(missilenum.Text);
@@ -161,47 +160,50 @@ namespace attack1
 
         private void atcListen_Click(object sender, EventArgs e)
         {
+            socketClient = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            IPAddress ipaddress = IPAddress.Parse(txtIP.Text.Trim());
+            IPEndPoint endpoint = new IPEndPoint(ipaddress, int.Parse(txtPORT.Text.Trim()));
+            socketClient.Connect(endpoint);
+            threadClient = new Thread(RecMsg);
+            threadClient.IsBackground = true;
+            threadClient.Start();
             
-            try
-            {
-                clientSocket.Connect(new IPEndPoint(ip, 8885)); //配置服务器IP与端口  
-                //Console.WriteLine("连接服务器成功");
-                loglog.Text += "连接服务器成功\n";
-            }
-            catch
-            {
-                //Console.WriteLine("连接服务器失败，请按回车键退出！");
-                loglog.Text += "连接服务器失败\n";
-                return;
-            }
-            //通过clientSocket接收数据  
-            int receiveLength = clientSocket.Receive(byteresult);
-            Console.WriteLine("接收服务器消息：{0}", Encoding.ASCII.GetString(byteresult, 0, receiveLength));
-            //通过 clientSocket 发送数据  
-            for (int i = 0; i < 10; i++)
-            {
-                try
-                {
-                    Thread.Sleep(1000);    //等待1秒钟  
-                    //string sendMessage = "client send Message Hellp" + DateTime.Now;
-                    string sendMessage = loglog.Text.ToString();
-                    clientSocket.Send(Encoding.ASCII.GetBytes(sendMessage));
-                    Console.WriteLine("向服务器发送消息：{0}" + sendMessage);
-                }
-                catch
-                {
-                    clientSocket.Shutdown(SocketShutdown.Both);
-                    clientSocket.Close();
-                    break;
-                }
-            }
-            Console.WriteLine("发送完毕，按回车键退出");
-            Console.ReadLine(); 
         }
+
+        /// <summary>
+        /// 接收服务端发来信息的方法
+        /// </summary>
+        private void RecMsg()
+        {
+            while (true) 
+            {
+                byte[] arrRecMsg = new byte[1024 * 1024];
+                int length = socketClient.Receive(arrRecMsg);
+                string strRecMsg = Encoding.UTF8.GetString(arrRecMsg, 0, length);
+                txtMsg.AppendText("server:" + GetCurrentTime() + "：" + strRecMsg + "\r\n");
+            }
+        }
+        /// <summary>
+        /// 发送字符串信息到服务端的方法
+        /// </summary>
+        /// <param name="sendMsg">发送的字符串信息</param>
+        private void ClientSendMsg(string sendMsg)
+        {
+            byte[] arrClientSendMsg = Encoding.UTF8.GetBytes(sendMsg);
+            socketClient.Send(arrClientSendMsg);
+            txtMsg.AppendText(GetCurrentTime() + "：" + sendMsg + "\r\n");
+        }
+        private DateTime GetCurrentTime()
+        {
+            DateTime currentTime = new DateTime();
+            currentTime = DateTime.Now;
+            return currentTime;
+        }
+
 
         private void client_send_Click(object sender, EventArgs e)
         {
-
+            ClientSendMsg(txtCMsg.Text.Trim());
         }
          
         }
