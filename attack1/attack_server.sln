@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "attack1", "attack1\attack1.csproj", "{B1E4CF35-8927-47EA-9C44-E991D148DF54}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "attack_server", "attack1\attack_server.csproj", "{B1E4CF35-8927-47EA-9C44-E991D148DF54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

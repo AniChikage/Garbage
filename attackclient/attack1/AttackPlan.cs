@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Sockets;
+using System.Net;
+using System.Threading;  
 
 namespace attack1
 {
@@ -33,6 +36,10 @@ namespace attack1
         private int[,] arr = new int[100000, 4];
         private int flag = 0;
         private int i;
+
+        private static byte[] byteresult = new byte[1024];
+        IPAddress ip = IPAddress.Parse("127.0.0.1");
+        Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         
         public AttackPlan()
         {
@@ -153,6 +160,46 @@ namespace attack1
         }
 
         private void atcListen_Click(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                clientSocket.Connect(new IPEndPoint(ip, 8885)); //配置服务器IP与端口  
+                //Console.WriteLine("连接服务器成功");
+                loglog.Text += "连接服务器成功\n";
+            }
+            catch
+            {
+                //Console.WriteLine("连接服务器失败，请按回车键退出！");
+                loglog.Text += "连接服务器失败\n";
+                return;
+            }
+            //通过clientSocket接收数据  
+            int receiveLength = clientSocket.Receive(byteresult);
+            Console.WriteLine("接收服务器消息：{0}", Encoding.ASCII.GetString(byteresult, 0, receiveLength));
+            //通过 clientSocket 发送数据  
+            for (int i = 0; i < 10; i++)
+            {
+                try
+                {
+                    Thread.Sleep(1000);    //等待1秒钟  
+                    //string sendMessage = "client send Message Hellp" + DateTime.Now;
+                    string sendMessage = loglog.Text.ToString();
+                    clientSocket.Send(Encoding.ASCII.GetBytes(sendMessage));
+                    Console.WriteLine("向服务器发送消息：{0}" + sendMessage);
+                }
+                catch
+                {
+                    clientSocket.Shutdown(SocketShutdown.Both);
+                    clientSocket.Close();
+                    break;
+                }
+            }
+            Console.WriteLine("发送完毕，按回车键退出");
+            Console.ReadLine(); 
+        }
+
+        private void client_send_Click(object sender, EventArgs e)
         {
 
         }

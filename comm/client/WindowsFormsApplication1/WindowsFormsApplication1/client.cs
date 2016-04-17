@@ -16,7 +16,7 @@ namespace WindowsFormsApplication1
      
     public partial class client : Form
     { 
-        private static byte[] result = new byte[1024];
+        private static byte[] byteresult = new byte[1024];
         public client()
         {
             InitializeComponent();
@@ -40,8 +40,8 @@ namespace WindowsFormsApplication1
                 return;
             }
             //通过clientSocket接收数据  
-            int receiveLength = clientSocket.Receive(result);
-            Console.WriteLine("接收服务器消息：{0}", Encoding.ASCII.GetString(result, 0, receiveLength));
+            int receiveLength = clientSocket.Receive(byteresult);
+            Console.WriteLine("接收服务器消息：{0}", Encoding.ASCII.GetString(byteresult, 0, receiveLength));
             //通过 clientSocket 发送数据  
             for (int i = 0; i < 10; i++)
             {

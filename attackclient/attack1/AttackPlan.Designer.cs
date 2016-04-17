@@ -53,6 +53,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
             this.atcListen = new System.Windows.Forms.Button();
+            this.loglog = new System.Windows.Forms.TextBox();
+            this.send_mes = new System.Windows.Forms.TextBox();
+            this.client_send = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -293,13 +296,39 @@
             // 
             // atcListen
             // 
-            this.atcListen.Location = new System.Drawing.Point(404, 86);
+            this.atcListen.Location = new System.Drawing.Point(347, 29);
             this.atcListen.Name = "atcListen";
             this.atcListen.Size = new System.Drawing.Size(75, 37);
             this.atcListen.TabIndex = 33;
             this.atcListen.Text = "连接";
             this.atcListen.UseVisualStyleBackColor = true;
             this.atcListen.Click += new System.EventHandler(this.atcListen_Click);
+            // 
+            // loglog
+            // 
+            this.loglog.Location = new System.Drawing.Point(241, 29);
+            this.loglog.Multiline = true;
+            this.loglog.Name = "loglog";
+            this.loglog.Size = new System.Drawing.Size(100, 37);
+            this.loglog.TabIndex = 34;
+            // 
+            // send_mes
+            // 
+            this.send_mes.Location = new System.Drawing.Point(241, 69);
+            this.send_mes.Multiline = true;
+            this.send_mes.Name = "send_mes";
+            this.send_mes.Size = new System.Drawing.Size(100, 39);
+            this.send_mes.TabIndex = 35;
+            // 
+            // client_send
+            // 
+            this.client_send.Location = new System.Drawing.Point(347, 67);
+            this.client_send.Name = "client_send";
+            this.client_send.Size = new System.Drawing.Size(75, 41);
+            this.client_send.TabIndex = 36;
+            this.client_send.Text = "发送";
+            this.client_send.UseVisualStyleBackColor = true;
+            this.client_send.Click += new System.EventHandler(this.client_send_Click);
             // 
             // AttackPlan
             // 
@@ -308,6 +337,9 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(901, 605);
+            this.Controls.Add(this.client_send);
+            this.Controls.Add(this.send_mes);
+            this.Controls.Add(this.loglog);
             this.Controls.Add(this.atcListen);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.pictureBox1);
@@ -364,5 +396,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button atcListen;
+        private System.Windows.Forms.TextBox loglog;
+        private System.Windows.Forms.TextBox send_mes;
+        private System.Windows.Forms.Button client_send;
     }
 }
