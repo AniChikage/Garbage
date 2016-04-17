@@ -6,3 +6,4 @@ G:\GITHUB\Garbage\comm\server\server\server\obj\Debug\server.csproj.GenerateReso
 G:\GITHUB\Garbage\comm\server\server\server\obj\Debug\server.exe
 G:\GITHUB\Garbage\comm\server\server\server\obj\Debug\server.pdb
 G:\GITHUB\Garbage\comm\server\server\server\obj\Debug\server.server.resources
+G:\GITHUB\Garbage\comm\server\server\server\obj\Debug\server.csprojResolveAssemblyReference.cache
