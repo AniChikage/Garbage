@@ -52,6 +52,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.server_listen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -290,6 +291,16 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // server_listen
+            // 
+            this.server_listen.Location = new System.Drawing.Point(397, 68);
+            this.server_listen.Name = "server_listen";
+            this.server_listen.Size = new System.Drawing.Size(75, 49);
+            this.server_listen.TabIndex = 33;
+            this.server_listen.Text = "启动服务";
+            this.server_listen.UseVisualStyleBackColor = true;
+            this.server_listen.Click += new System.EventHandler(this.server_listen_Click);
+            // 
             // AttackPlan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -297,6 +308,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(901, 605);
+            this.Controls.Add(this.server_listen);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button2);
@@ -351,5 +363,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button server_listen;
     }
 }
