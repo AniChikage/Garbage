@@ -1,0 +1,22 @@
+﻿{
+  "sdk": {
+    "version": "2.0.0.0",
+    "dependents": [
+      { "nim.dll": "2.0.0.0" },
+      { "nim_audio.dll": "1.1.0.0" },
+      { "nim_tools_http.dll": "1.1.0.0" },
+      { "nrtc.dll": "1.1.0.0" },
+      { "nim_chatroom.dll": "2.0.0.0" }
+    ]
+  },
+  "configs": {
+    "index": 0,
+    "list": [
+      {
+        "server": "",
+        "appkey": "45c6af3c98409b18a84451215d0bdd6e",
+        "roomlistserver": "https://app.netease.im/api/chatroom/homeList"
+      }
+    ]
+  }
+}
