@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<LinearLayout  
+  xmlns:android="http://schemas.android.com/apk/res/android"  
+  android:orientation="vertical"  
+  android:layout_width="fill_parent"  
+  android:layout_height="fill_parent"  
+  android:background="@drawable/bg4">  
+  <!-- padding 内边距   layout_margin 外边距   
+                  android:layout_alignParentTop 布局的位置是否处于顶部 -->
+
+<RelativeLayout
+        android:id="@+id/login_div"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="15dip"
+        android:padding="15dip" >
+
+        <TextView
+            android:id="@+id/category_remain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200dip"
+            android:layout_marginTop="20dp"
+            style="@style/quesText"/>
+        
+         <TextView
+            android:id="@+id/category_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dip"
+            android:layout_marginTop="20dp"
+            style="@style/quesText"/>
+         <TextView
+            android:id="@+id/remain_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dip"
+            android:layout_marginTop="20dp"
+            style="@style/quesText"/>
+    
+        <TextView
+            android:id="@+id/category_ques"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="100dp"
+            style="@style/quesText"/>
+
+        <Button
+            android:id="@+id/category_ans_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="200dip"
+            style="@style/quesText"/>
+        <Button
+            android:id="@+id/category_ans_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="255dip"
+            style="@style/quesText"/>
+        <Button
+            android:id="@+id/category_ans_c"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="310dip"
+            style="@style/quesText"/>
+        <Button
+            android:id="@+id/category_ans_d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="365dip"
+            style="@style/quesText"/>
+        <Button
+            android:id="@+id/returncategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="470dip"
+            android:text="返回目录"
+            style="@style/quesText"/>
+
+    </RelativeLayout>
+
+</LinearLayout> 

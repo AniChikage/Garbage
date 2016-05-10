@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<LinearLayout  
+  xmlns:android="http://schemas.android.com/apk/res/android"  
+  android:orientation="vertical"  
+  android:layout_width="fill_parent"  
+  android:layout_height="fill_parent"  
+  android:background="@drawable/bg_cate">  
+  <!-- padding 内边距   layout_margin 外边距   
+                  android:layout_alignParentTop 布局的位置是否处于顶部 -->
+
+    <RelativeLayout
+        android:id="@+id/category_div"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="15dip"
+        android:padding="15dip" >
+
+        <Button
+            android:id="@+id/category_culture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dip" 
+            android:layout_marginLeft="5dip"
+            android:background="@drawable/btn"
+            android:text="文化" />
+
+        <Button
+            android:id="@+id/category_quzz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dip" 
+            android:layout_marginLeft="130dip"
+            android:background="@drawable/btn"
+            android:text="益智" />
+
+        <Button
+            android:id="@+id/category_cold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dip" 
+            android:layout_marginLeft="260dip"
+            android:background="@drawable/btn"
+            android:text="冷门" />
+
+        <Button
+            android:id="@+id/category_sports"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="115dip" 
+            android:layout_marginLeft="5dip"
+            android:background="@drawable/btn"
+            android:text="运动" />
+
+        <Button
+            android:id="@+id/category_computer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="115dip" 
+            android:layout_marginLeft="130dip"
+            android:background="@drawable/btn"
+            android:text="计算机" />
+
+        <Button
+            android:id="@+id/category_video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="115dip" 
+            android:layout_marginLeft="260dip"
+            android:background="@drawable/btn"
+            android:text="影视" />
+
+        <Button
+            android:id="@+id/category_world"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="215dip" 
+            android:layout_marginLeft="5dip"
+            android:background="@drawable/btn"
+            android:text="世界" />
+
+        <Button
+            android:id="@+id/category_anime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="215dip" 
+            android:layout_marginLeft="130dip"
+            android:background="@drawable/btn"
+            android:text="动 漫" />
+
+        <Button
+            android:id="@+id/category_literature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="215dip" 
+            android:layout_marginLeft="260dip"
+            android:background="@drawable/btn"
+            android:text="文学" />
+
+        <Button
+            android:id="@+id/category_other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="315dip" 
+            android:layout_marginLeft="5dip"
+            android:background="@drawable/btn"
+            android:text="其他" />
+
+        <Button
+            android:id="@+id/category_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="450dip" 
+            android:layout_marginLeft="130dip"
+            android:background="@drawable/btn"
+            android:text="设置" />
+
+    </RelativeLayout>
+
+</LinearLayout> 

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<LinearLayout  
+  xmlns:android="http://schemas.android.com/apk/res/android"  
+  android:orientation="vertical"  
+  android:layout_width="fill_parent"  
+  android:layout_height="fill_parent"  
+  android:background="@drawable/bg6">  
+  <!-- padding 内边距   layout_margin 外边距   
+                  android:layout_alignParentTop 布局的位置是否处于顶部 -->
+
+    <RelativeLayout
+        android:id="@+id/login_div"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="15dip"
+        android:padding="15dip" >
+
+        <TextView
+            android:id="@+id/user_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="110dp"
+            android:layout_marginTop="40dp"
+            android:text="账户" 
+            style="@style/userText"/>
+        
+        <EditText
+            android:id="@+id/login_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="40dp"
+            android:layout_toRightOf="@+id/user_label"
+            android:inputType="text"
+            android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/login_pwd"
+            android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="100dp" 
+                  android:layout_toRightOf="@+id/pwd_label"
+                  android:layout_alignParentRight="true"
+                  android:singleLine="true"  
+                  android:inputType="textPassword" /> 
+        <TextView  
+                  android:id="@+id/pwd_label"  
+                  android:layout_width="wrap_content"  
+                  android:layout_height="wrap_content"  
+                  android:layout_marginLeft="110dp"
+                  android:layout_marginTop="100dp" 
+                  android:text="密码"  
+                  style="@style/userText"/> 
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="wrap_content"  
+                  android:layout_height="wrap_content" 
+                  android:layout_marginTop="150dp"
+                  android:layout_alignRight="@id/login_pwd"
+                  android:background="@drawable/blue_button" 
+                  android:text="登 陆" />  
+        
+        <Button
+            android:id="@+id/go_register"
+            android:layout_width="wrap_content"  
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:layout_alignLeft="@id/pwd_label" 
+            android:background="@drawable/blue_button"
+            android:text="注 册"/>
+        <!-- 
+        <Button
+            android:id="@+id/main_test_enter"
+            android:layout_width="wrap_content"  
+            android:layout_height="wrap_content"
+            android:layout_marginTop="280dp"
+            android:layout_alignLeft="@id/pwd_label" 
+            android:text=""/> -->
+<!--  
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/button2"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="58dp"
+            android:text="tiku" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/go_register"
+            android:layout_below="@+id/login_pwd"
+            android:text="yonghu" />-->
+
+    </RelativeLayout>
+
+</LinearLayout> 

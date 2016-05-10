@@ -1,0 +1,25 @@
+
+apply plugin: 'com.android.application'
+
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion buildToolsVer
+
+    defaultConfig {
+        applicationId "com.netease.nrtc.demo"
+        minSdkVersion 9
+        targetSdkVersion 23
+        versionCode 1021
+        versionName "2.0.0"
+    }
+
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:23.3.0'
+    compile 'com.android.support:cardview-v7:23.3.0'
+
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+

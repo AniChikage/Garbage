@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<LinearLayout  
+  xmlns:android="http://schemas.android.com/apk/res/android"  
+  android:orientation="vertical"  
+  android:layout_width="fill_parent"  
+  android:layout_height="fill_parent"  
+  android:background="@drawable/bgset">  
+  <!-- padding 内边距   layout_margin 外边距   
+                  android:layout_alignParentTop 布局的位置是否处于顶部 -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="15dip"
+        android:padding="15dip" >
+
+        <TextView
+            android:id="@+id/level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp"
+            style="@style/resultText"
+            />
+        
+<RadioGroup android:id="@+id/radioGroup" 
+    android:contentDescription="难度" 
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="100dip"
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content">
+     <RadioButton 
+         android:background="@drawable/rbtn3"
+         android:layout_width="wrap_content" 
+         android:layout_height="wrap_content" 
+         android:id="@+id/easy" 
+         android:text="   易" 
+         android:checked="true">
+         
+     </RadioButton>
+
+     <RadioButton 
+         android:background="@drawable/rbtn3"
+         android:layout_width="wrap_content" 
+         android:layout_height="wrap_content" 
+         android:id="@+id/middle" 
+         android:text="   中">
+     </RadioButton>  
+       
+     <RadioButton 
+         android:background="@drawable/rbtn3"
+         android:layout_width="wrap_content" 
+         android:layout_height="wrap_content" 
+         android:id="@+id/diff" 
+         android:text="   难">
+     </RadioButton>  
+      
+</RadioGroup>
+<TextView
+            android:id="@+id/bgm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="250dip"
+            style="@style/resultText"
+            />
+<RadioGroup android:id="@+id/radioGroup2" 
+    android:contentDescription="背景音乐" 
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="300dip"
+    android:layout_width="wrap_content" 
+    android:layout_height="wrap_content">
+     <RadioButton 
+         android:background="@drawable/rbtn3"
+         android:layout_width="wrap_content" 
+         android:layout_height="wrap_content" 
+         android:id="@+id/MSCON" 
+         android:text="   开启" 
+         android:checked="true">
+         
+     </RadioButton>
+
+     <RadioButton 
+         android:background="@drawable/rbtn3"
+         android:layout_width="wrap_content" 
+         android:layout_height="wrap_content" 
+         android:id="@+id/MSCOFF" 
+         android:text="   关闭">
+     </RadioButton>  
+       
+   
+</RadioGroup>
+     <Button
+         android:id="@+id/setting_back"
+         android:background="@drawable/sbtn"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_marginBottom="20dp"
+         android:layout_marginLeft="220dp"
+         android:text="返回" />
+
+     <Button
+         android:id="@+id/setting_ok"
+         android:background="@drawable/sbtn"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginBottom="20dp"
+         android:layout_marginLeft="24dp"
+         android:layout_alignBaseline="@+id/setting_back"
+         android:layout_alignBottom="@+id/setting_back"
+         android:text="确定" />
+
+    </RelativeLayout>
+
+</LinearLayout> 

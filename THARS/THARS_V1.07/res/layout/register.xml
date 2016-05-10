@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<LinearLayout  
+  xmlns:android="http://schemas.android.com/apk/res/android"  
+  android:orientation="vertical"  
+  android:layout_width="fill_parent"  
+  android:layout_height="fill_parent"  
+  android:background="@drawable/bg">  
+  <!-- padding 内边距   layout_margin 外边距   
+                  android:layout_alignParentTop 布局的位置是否处于顶部 -->
+
+    <RelativeLayout
+        android:id="@+id/login_div"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="15dip"
+        android:padding="15dip" >
+
+        <TextView
+            android:id="@+id/regi_user_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="40dp"
+            android:text="用户名：" 
+            style="@style/normalText"/>
+        
+        <EditText
+            android:id="@+id/regi_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="40dp"
+            android:layout_toRightOf="@+id/regi_user_label"
+            android:inputType="text"
+            android:singleLine="true" />
+
+        <TextView  
+                  android:id="@+id/regi_pwd_label"  
+                  android:layout_width="wrap_content"  
+                  android:layout_height="wrap_content"  
+                  android:layout_marginTop="100dp" 
+                  android:text="密码："  
+                  android:layout_marginLeft="5dp"
+                  style="@style/normalText"/> 
+        
+        <EditText
+            android:id="@+id/regi_pwd"
+            android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="100dp" 
+                  android:layout_toRightOf="@id/regi_pwd_label"
+                  android:layout_alignParentRight="true"
+                  android:singleLine="true"  
+                  android:inputType="textPassword" /> 
+        
+        <Button
+            android:id="@+id/regi_return"
+            android:layout_width="wrap_content"  
+                  android:layout_height="wrap_content" 
+                  android:layout_marginTop="200dp"
+                  android:layout_alignRight="@id/regi_pwd"
+                  android:background="@drawable/blue_button" 
+                  android:text="返回登陆" />  
+        
+        <Button
+            android:id="@+id/regi_regi"
+            android:layout_width="wrap_content"  
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:layout_alignLeft="@id/pwd_label" 
+            android:background="@drawable/blue_button"
+            android:text="注 册"/>
+
+      
+    </RelativeLayout>
+
+</LinearLayout> 

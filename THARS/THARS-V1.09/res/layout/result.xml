@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<LinearLayout  
+  xmlns:android="http://schemas.android.com/apk/res/android"  
+  android:orientation="vertical"  
+  android:layout_width="fill_parent"  
+  android:layout_height="fill_parent"  
+  android:background="@drawable/result">  
+  <!-- padding 内边距   layout_margin 外边距   
+                  android:layout_alignParentTop 布局的位置是否处于顶部 -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="15dip"
+        android:padding="15dip" >
+
+        <TextView
+            android:id="@+id/anime_result_mes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="180dp"
+            style="@style/resultText"/>
+        
+         <TextView
+            android:id="@+id/anime_result_mes1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="80dp"
+            style="@style/normalText"/>
+         
+         <TextView
+            android:id="@+id/anime_result_mes2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="120dp"
+            style="@style/normalText"/>
+         
+         <TextView
+            android:id="@+id/anime_result_mes3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="280dp"
+            style="@style/resultText"/>
+         
+         <Button
+            android:id="@+id/anime_return_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="430dp"
+            android:background="@drawable/blue_button"
+            android:text="返回目录"
+            style="@style/normalText"/>
+         
+         <Button
+            android:id="@+id/anime_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="430dp"
+            android:background="@drawable/blue_button"
+            android:text="返回模式选择"
+            style="@style/normalText"/>
+  
+    </RelativeLayout>
+
+</LinearLayout> 

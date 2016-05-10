@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.thars"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        
+         <activity
+            android:name="com.thars.Zero"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.thars.MainActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.Adminis_anime"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.Register"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.Adminis_user"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.Administrator"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.Category"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.chuangguan.CGintro"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.chuangguan.Second"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.chuangguan.Third"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.chuangguan.Forth"
+            android:label="@string/app_name" >
+        </activity>
+      
+        <activity
+            android:name="com.thars.chuangguan.CGFirst"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.chuangguan.CGSecond"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.chuangguan.CGThird"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.chuangguan.CGForth"
+            android:label="@string/app_name" >
+        </activity>
+        
+        <activity
+            android:name="com.thars.chuangguan.CGResult"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.chuangguan.CGFailure1"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.chuangguan.CGFailure2"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.chuangguan.CGFailure3"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.chuangguan.CGFailure4"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
+            android:name="com.thars.User_anime"
+            android:label="@string/app_name" >
+        </activity>
+        
+        <activity
+            android:name="com.thars.time"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.chuangguan.First"
+            android:label="@string/app_name" >
+        </activity>
+
+        <activity
+            android:name="com.thars.Result"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.User_cold"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.User_computer"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.chuangguan.Information"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.chuangguan.CGSuccess1"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.chuangguan.CGSuccess2"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.chuangguan.CGSuccess3"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.chuangguan.CGSuccess4"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.chuangguan.CGWin"
+            android:label="@string/app_name" >
+        </activity>
+  
+        <activity
+            android:name="com.thars.User_culture"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.User_literature"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.Selection"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.User_other"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.User_quzz"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.User_sports"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.User_video"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.User_world"
+            android:label="@string/app_name" >
+        </activity>
+         <activity
+            android:name="com.thars.Setting"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.thars.User_quzz_a"
+            android:label="@string/app_name">
+        </activity>
+        
+    </application>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+</manifest>

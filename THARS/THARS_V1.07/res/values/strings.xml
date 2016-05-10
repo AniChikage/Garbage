@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">THARS</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="activity_title">闯关任务说明</string>
+    <string name="first_page_title">故事背景</string>
+	<string name="first_page_description">来自Mount darkFlaire的勇者们
+\n\n
+为了挑战自己，不断超越自我
+\n\n
+   他们穿越沙漠，翻过山岭
+\n\n
+ 历经万险，终于到达Saron，勇者们的最向往的神圣之地
+\n\n
+然而已被Monkey·D·Luffy占领，勇者们能挑战成功么！？
+\n\n
+hold your sword！fight!
+	</string>
+	<string name="second_page_title">该挑战共有4关</string>
+	<string name="second_page_description">
+		Alabasta， 
+		\n\n
+		Sora island.
+		\n\n
+        Impel down.
+  	\n\n
+        Marineford.
+    	\n\n
+   每次挑战不成功，则从上关开始</string>
+	<string name="item_about">闯关模式</string>
+</resources>

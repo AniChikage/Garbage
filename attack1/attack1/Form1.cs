@@ -27,14 +27,22 @@ namespace attack1
 
         private void button1_Click(object sender, EventArgs e)
         {
-         //   if(textBox1.Text =="123" &&  textBox2.Text =="123")
-         //   {
+            if(username.Text =="admin" &&  password.Text =="123456")
+            {
                 MessageBox.Show("登录成功");
                 this.Hide();
                 main W1 = new main();
                 W1.Show();
+            }
+            else
+            {
+                MessageBox.Show("check your usern and pwd!");
+            }
+        }
 
-        //    }
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

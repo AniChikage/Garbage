@@ -166,15 +166,23 @@ namespace attack1
         
         private void server_listen_Click(object sender, EventArgs e)
         {
-            socketWatch = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            IPAddress ipaddress = IPAddress.Parse(txtIP.Text.Trim()); 
-            IPEndPoint endpoint = new IPEndPoint(ipaddress, int.Parse(txtPORT.Text.Trim())); 
-            socketWatch.Bind(endpoint);
-            socketWatch.Listen(20);
-            threadWatch = new Thread(WatchConnecting);
-            threadWatch.IsBackground = true;
-            threadWatch.Start();
-            txtMsg.AppendText("开始监听客户端传来的信息!" + "\r\n");
+            try
+            {
+                socketWatch = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                IPAddress ipaddress = IPAddress.Parse(txtIP.Text.Trim());
+                IPEndPoint endpoint = new IPEndPoint(ipaddress, int.Parse(txtPORT.Text.Trim()));
+                socketWatch.Bind(endpoint);
+                socketWatch.Listen(20);
+                threadWatch = new Thread(WatchConnecting);
+                threadWatch.IsBackground = true;
+                threadWatch.Start();
+                txtMsg.AppendText("开始监听客户端传来的信息!" + "\r\n");
+            }
+            catch
+            {
+                MessageBox.Show("please input IP or port!!");
+            }
+            
             
         }
 
@@ -202,9 +210,16 @@ namespace attack1
         /// <param name="sendMsg">发送的字符串信息</param>
         private void ServerSendMsg(string sendMsg)
         {
-            byte[] arrSendMsg = Encoding.UTF8.GetBytes(sendMsg);
-            socConnection.Send(arrSendMsg);
-            txtMsg.AppendText(GetCurrentTime() + "：" + sendMsg + "\r\n");
+            try
+            {
+                byte[] arrSendMsg = Encoding.UTF8.GetBytes(sendMsg);
+                socConnection.Send(arrSendMsg);
+                txtMsg.AppendText(GetCurrentTime() + "：" + sendMsg + "\r\n");
+            }
+            catch
+            {
+                MessageBox.Show("you must input something!");
+            }
         }
 
         /// <summary>

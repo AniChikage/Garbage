@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<LinearLayout  
+  xmlns:android="http://schemas.android.com/apk/res/android"  
+  android:orientation="vertical"  
+  android:layout_width="fill_parent"  
+  android:layout_height="fill_parent"  
+  android:background="@drawable/bg">  
+  <!-- padding 内边距   layout_margin 外边距   
+                  android:layout_alignParentTop 布局的位置是否处于顶部 -->
+
+    <RelativeLayout
+        android:id="@+id/administrator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="15dip"
+        android:padding="15dip" >
+        
+        <Button 
+            android:id="@+id/adminis_user"
+          android:layout_width="wrap_content"  
+                  android:layout_height="wrap_content" 
+                  android:layout_marginTop="50dip"
+                  android:background="@drawable/blue_button" 
+                  android:text="用 户" />  
+       
+        
+        <Button 
+            android:id="@+id/adminis_ques_anime"
+          android:layout_width="wrap_content"  
+                  android:layout_height="wrap_content" 
+                  android:layout_marginTop="20dip"
+                  android:layout_below="@id/adminis_user"
+                  android:background="@drawable/blue_button" 
+                  android:text="动漫题库" />  
+
+        
+
+    </RelativeLayout>
+
+</LinearLayout> 
